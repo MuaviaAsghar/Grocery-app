@@ -64,14 +64,15 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/GoogleText.png
     - assets/images/CarrotLogo.png
+    - assets/images/Location.png
     - assets/images/GroceryBag.png
     - assets/images/onboarding.png
-    - assets/images/GoogleLogin.png
+    - assets/images/google.png
     - assets/images/facebook.png
     - assets/images/BananaCard.png
     - assets/images/addButton.png
+    - assets/images/banner@2x.png
     - assets/images/Addtocart.png
     - assets/images/AppbarLogo.png
   # An image asset can refer to one or more resolution-specific "variants", see

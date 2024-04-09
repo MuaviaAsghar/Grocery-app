@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:groceryapp/buttons/get_started.dart';
 
 class Onboard extends StatelessWidget {
