@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:groceryapp/Card.dart';
+
+import 'package:groceryapp/card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -67,22 +67,14 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const SizedBox(
                 height:
-                    10), // Add some space between the text field and the banner
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Image.asset(
-                'assets/images/banner@2x.png',
-              ),
-            ),
-            const SizedBox(
-                height: 10), // Add some space between the banner and the cards
-            Padding(
+                    10),
+                    Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 children: [
                   const Expanded(
                     child: Text(
-                      "Exclusive Offer",
+                      "Best Selling",
                       style: TextStyle(
                         color: Color(0xff181725),
                         fontFamily: 'Gilroy-Regular',
@@ -107,21 +99,79 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
+            ), // Add some space between the text field and the banner
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Image.asset(
+                'assets/images/banner@2x.png',
+              ),
             ),
             const SizedBox(
-                height: 10), // Add some space between the text and the cards
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                CustomCard(
-                  imagePath: 'assets/images/Banana.png',Nameofproduct: "Organic Banana",
+                height: 10), // Add some space between the banner and the cards
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    custom_card(
+                      imagePath: 'assets/images/Banana.png',
+                      nameofproduct: "Organic Banana",
+                      perpiece: "7pcs, Priceg",
+                      price: "\$4.99",
+                    ),
+                    custom_card(
+                      imagePath: 'assets/images/apple.png',
+                      nameofproduct: "Red Apple",
+                      perpiece: "1kg, Priceg",
+                      price: '\$4.99',
+                    ),
+                    custom_card(
+                      imagePath: 'assets/images/BellPepper.png',
+                      nameofproduct: "Bell Pepper Red",
+                      perpiece: "1kg, Price",
+                      price: "\$4.99",
+                    ),
+                    // Add more CustomCard widgets as needed
+                  ],
                 ),
-                CustomCard(
-                  imagePath: 'assets/images/apple.png',Nameofproduct: "Red Apple",
-                ),
-
-                // Add more CustomCard widgets as needed
-              ],
+              ),
+            ),
+            const SizedBox(
+                height:
+                    10), // Add some space between the cards and the best selling section
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                children: [
+                  const Expanded(
+                    child: Text(
+                      "Best Selling",
+                      style: TextStyle(
+                        color: Color(0xff181725),
+                        fontFamily: 'Gilroy-Regular',
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                      width: 10), // Add some space between the text widgets
+                  GestureDetector(
+                    onTap: () {},
+                    child: const Text(
+                      "See all",
+                      style: TextStyle(
+                        color: Color(0xff53B175),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        fontFamily: 'Golroy-Regular',
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
