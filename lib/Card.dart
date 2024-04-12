@@ -91,7 +91,7 @@ class custom_card extends StatelessWidget {
                     price,
                     style: const TextStyle(
                       fontSize: 18,
-                      fontFamily: 'Gilroy-Regular',
+                      fontFamily: 'Gilroy-Bold',
                       height: 1.8,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 0.1,

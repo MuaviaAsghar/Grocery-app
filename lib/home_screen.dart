@@ -2,18 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:groceryapp/card.dart';
 import 'package:groceryapp/const_color.dart';
 import 'package:groceryapp/groceries_scroll.dart';
-
+import 'package:groceryapp/nav_bar_icons.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key,});
+  const HomeScreen({
+    super.key,
+  });
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  
-
+  final screens = [];
+  int currentindex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -302,7 +304,59 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: const Color(0xFF53B175),
+        unselectedItemColor: const Color(0xff181725),
+        backgroundColor: Colors.white,
+        currentIndex: currentindex,
+        selectedFontSize: 12,
+        unselectedFontSize: 12,
+        unselectedLabelStyle: const TextStyle(
+          fontSize: 12,
+          fontWeight: FontWeight.w600,
+          fontFamily: 'Gilroy',
+        ),
+        selectedLabelStyle: const TextStyle(
+          fontSize: 12,
+          fontWeight: FontWeight.w600,
+          fontFamily: 'Gilroy',
+        ),
+        onTap: (index) => setState(() => currentindex = index),
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(
+              NavBar.store,
+            ),
+            label: 'Shop',
+            backgroundColor: Color.fromARGB(255, 0, 0, 0),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              NavBar.explore,
+            ),
+            label: 'Explore',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              NavBar.cart,
+            ),
+            label: 'Cart',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              NavBar.favourite,
+            ),
+            label: 'Favourite',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              NavBar.account,
+            ),
+            label: 'Account',
+          ),
+        ],
+      ),
     );
   }
 }
