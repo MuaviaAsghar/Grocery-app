@@ -6,11 +6,11 @@ class GroceriesRowWidget extends StatelessWidget {
   final String productname;
 
   const GroceriesRowWidget({
-    Key? key,
+    super.key,
     required this.colorinput,
     required this.imagePath,
     required this.productname,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

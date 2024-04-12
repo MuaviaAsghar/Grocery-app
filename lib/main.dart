@@ -1,23 +1,30 @@
 import 'package:flutter/material.dart';
-
-import 'package:groceryapp/home_screen.dart';
-
-
+import 'package:groceryapp/nav_bar_icons.dart';
+import 'package:groceryapp/onboarding.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key});
 
-  // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        home: HomeScreen());
-  }
+  State<MyApp> createState() => _MyAppState();
 }
 
+class _MyAppState extends State<MyApp> {
+  int currentindex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      home: Scaffold(
+        body: const Onboard(),
+        
+      ),
+    );
+  }
+}
