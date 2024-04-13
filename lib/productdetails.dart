@@ -1,9 +1,6 @@
-import 'dart:ui';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:groceryapp/buttons/counterplusandminus.dart';
-
-import 'const_color.dart';
+import 'package:groceryapp/const_color.dart';
 
 class ProductDetail extends StatefulWidget {
   final String imageBgPath;
@@ -11,6 +8,7 @@ class ProductDetail extends StatefulWidget {
   final String productName;
   final String pricePerKg;
   final String Price;
+
   const ProductDetail({
     super.key,
     required this.imageBgPath,
@@ -124,8 +122,9 @@ class _ProductDetailState extends State<ProductDetail> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25,vertical: 10),
-              child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const CounterPlusMinus(),
                   Text(
@@ -138,7 +137,7 @@ class _ProductDetailState extends State<ProductDetail> {
                       fontWeight: FontWeight.bold,
                       letterSpacing: 0.1,
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -149,9 +148,59 @@ class _ProductDetailState extends State<ProductDetail> {
                 color: const Color(0x00e2e2e2).withOpacity(0.7),
               ),
             ),
+             Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+              child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Product Detail",
+                    style: TextStyle(
+                        color: Color(0xff181725),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        fontFamily: 'Gilroy-Regular'),
+                  ),
+                  ReadMoreButton(
+                    onChanged: (expanded) {
+                      // Handle the state change here if needed
+                    },
+                  ),
+                ],
+                
+              ),
+            )
           ],
-         
         ),
+      ),
+    );
+  }
+}
+
+class ReadMoreButton extends StatefulWidget {
+  final ValueChanged<bool> onChanged;
+
+  const ReadMoreButton({Key? key, required this.onChanged}) : super(key: key);
+
+  @override
+  _ReadMoreButtonState createState() => _ReadMoreButtonState();
+}
+
+class _ReadMoreButtonState extends State<ReadMoreButton> {
+  bool isExpanded = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          isExpanded = !isExpanded;
+          widget.onChanged(isExpanded);
+        });
+      },
+      child: Icon(
+        isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+        color: Colors.black,
+        size: 28,
       ),
     );
   }
