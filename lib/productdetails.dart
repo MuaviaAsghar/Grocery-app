@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:groceryapp/buttons/counterplusandminus.dart';
+import 'package:groceryapp/buttons/get_started.dart';
 import 'package:groceryapp/const_color.dart';
 
 class ProductDetail extends StatefulWidget {
@@ -8,14 +9,19 @@ class ProductDetail extends StatefulWidget {
   final String productName;
   final String pricePerKg;
   final String Price;
-
+  final String productinfo;
+  final String nutirients;
+  final String feautureupdate;
   const ProductDetail({
-    super.key,
+    Key? key, // Added Key? type
     required this.imageBgPath,
     required this.imagePath,
     required this.productName,
     required this.pricePerKg,
+    required this.nutirients,
     required this.Price,
+    required this.productinfo,
+    required this.feautureupdate, // Corrected variable name
   });
 
   @override
@@ -24,7 +30,9 @@ class ProductDetail extends StatefulWidget {
 
 class _ProductDetailState extends State<ProductDetail> {
   bool isFavorited = false;
-
+  bool isExpandedNutrients = false;
+  bool isExpanded = false;
+  bool isExpandedReviews = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -148,9 +156,12 @@ class _ProductDetailState extends State<ProductDetail> {
                 color: const Color(0x00e2e2e2).withOpacity(0.7),
               ),
             ),
-             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-              child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 25,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
                     "Product Detail",
@@ -160,47 +171,180 @@ class _ProductDetailState extends State<ProductDetail> {
                         fontWeight: FontWeight.w600,
                         fontFamily: 'Gilroy-Regular'),
                   ),
-                  ReadMoreButton(
-                    onChanged: (expanded) {
-                      // Handle the state change here if needed
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        isExpanded = !isExpanded;
+                      });
                     },
+                    child: Icon(
+                      isExpanded
+                          ? Icons.keyboard_arrow_down
+                          : Icons.keyboard_arrow_right,
+                      color: Colors.black,
+                      size: 28,
+                    ),
                   ),
                 ],
-                
               ),
+            ),
+            if (isExpanded)
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+                child: Text(
+                  widget.productinfo, // Used widget.productinfo here
+                  style: const TextStyle(
+                    fontFamily: 'Gilroy-Medium',
+                    fontSize: 13,
+                    height: 2.1,
+                    color: Color(0xff7C7C7C),
+                  ),
+                ),
+              ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(25, 10, 25, 10),
+              child: Container(
+                height: 1,
+                color: const Color(0x00e2e2e2).withOpacity(0.7),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 25,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Nutiritions",
+                    style: TextStyle(
+                        color: Color(0xff181725),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        fontFamily: 'Gilroy-Regular'),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        decoration: const BoxDecoration(
+                          color: Color(0xffEBEBEB),
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(5),
+                            topRight: Radius.circular(5),
+                            bottomLeft: Radius.circular(5),
+                            bottomRight: Radius.circular(5),
+                          ),
+                        ),
+                        height: 18,
+                        width: 34,
+                        child: const Center(
+                            child: Text(
+                          "100gm",
+                          style: TextStyle(
+                              color: Color(0xff7C7C7C),
+                              fontWeight: FontWeight.w600,
+                              fontFamily: 'Gilroy-Regular',
+                              height: 1.35,
+                              fontSize: 9),
+                        )),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            isExpandedNutrients = !isExpandedNutrients;
+                          });
+                        },
+                        child: Icon(
+                          isExpandedNutrients
+                              ? Icons.keyboard_arrow_down
+                              : Icons.keyboard_arrow_right,
+                          color: Colors.black,
+                          size: 28,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            if (isExpandedNutrients)
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+                child: Text(
+                  widget.nutirients, // Used widget.productinfo here
+                  style: const TextStyle(
+                    fontFamily: 'Gilroy-Medium',
+                    fontSize: 13,
+                    height: 2.1,
+                    color: Color(0xff7C7C7C),
+                  ),
+                ),
+              ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(25, 10, 25, 10),
+              child: Container(
+                height: 1,
+                color: const Color(0x00e2e2e2).withOpacity(0.7),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 25,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Reviews ",
+                    style: TextStyle(
+                        color: Color(0xff181725),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        fontFamily: 'Gilroy-Regular'),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        isExpandedReviews = !isExpandedReviews;
+                      });
+                    },
+                    child: Icon(
+                      isExpandedReviews
+                          ? Icons.keyboard_arrow_down
+                          : Icons.keyboard_arrow_right,
+                      color: Colors.black,
+                      size: 28,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            if (isExpandedReviews)
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+                child: Center(
+                  child: Text(
+                    widget.feautureupdate, // Used widget.productinfo here
+                    style: const TextStyle(
+                      fontFamily: 'Gilroy-Regular',
+                      fontSize: 30,
+                      color: Color.fromARGB(255, 255, 0, 0),
+                    ),
+                  ),
+                ),
+              ),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,children: [AddToBasketButton()]
+                  ),
             )
           ],
         ),
-      ),
-    );
-  }
-}
-
-class ReadMoreButton extends StatefulWidget {
-  final ValueChanged<bool> onChanged;
-
-  const ReadMoreButton({Key? key, required this.onChanged}) : super(key: key);
-
-  @override
-  _ReadMoreButtonState createState() => _ReadMoreButtonState();
-}
-
-class _ReadMoreButtonState extends State<ReadMoreButton> {
-  bool isExpanded = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          isExpanded = !isExpanded;
-          widget.onChanged(isExpanded);
-        });
-      },
-      child: Icon(
-        isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
-        color: Colors.black,
-        size: 28,
       ),
     );
   }

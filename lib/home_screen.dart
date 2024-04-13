@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+
 import 'package:groceryapp/card.dart';
-import 'package:groceryapp/const_color.dart';
 import 'package:groceryapp/groceries_scroll.dart';
 import 'package:groceryapp/nav_bar_icons.dart';
+import 'package:groceryapp/const_color.dart';
+import 'package:groceryapp/productdetails.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({
-    super.key,
-  });
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -15,7 +16,32 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final screens = [];
-  int currentindex = 0;
+  int currentIndex = 0;
+
+  final List<Map<String, String>> cardData = [
+    {
+      'imagePath': 'assets/images/Banana.png',
+      'nameofproduct': 'Organic Banana',
+      'perpiece': '7pcs, Priceg',
+      'price': '\$4.99',
+    },
+    {
+      'imagePath': 'assets/images/apple.png',
+      'nameofproduct': 'Red Apple',
+      'perpiece': '1kg, Priceg',
+      'price': '\$4.99',
+    },
+    {
+      'imagePath': 'assets/images/BellPepper.png',
+      'nameofproduct': 'Bell Pepper Red',
+      'perpiece': '1kg, Price',
+      'price': '\$4.99',
+    },
+
+    // A
+    // Add more card data as needed
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,23 +50,19 @@ class _HomeScreenState extends State<HomeScreen> {
           SliverAppBar(
             title: Image.asset('assets/images/AppbarLogo.png'),
             centerTitle: true,
-            pinned: false, // Hide the app bar on scroll
+            pinned: false,
           ),
           SliverToBoxAdapter(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SizedBox(
-                    height:
-                        10), // Add some space between the app bar and the image
+                const SizedBox(height: 10),
                 Image.asset(
                   'assets/images/Location.png',
                   height: 30,
                   width: 200,
                 ),
-                const SizedBox(
-                    height:
-                        10), // Add some space between the image and the text field
+                const SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: TextField(
@@ -91,8 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                       ),
-                      const SizedBox(
-                          width: 10), // Add some space between the text widgets
+                      const SizedBox(width: 10),
                       GestureDetector(
                         onTap: () {},
                         child: const Text(
@@ -107,49 +128,59 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
-                ), // Add some space between the text field and the banner
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Image.asset(
                     'assets/images/banner@2x.png',
                   ),
                 ),
-                const SizedBox(
-                    height:
-                        10), // Add some space between the banner and the cards
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
+                const SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        custom_card(
-                          imagePath: 'assets/images/Banana.png',
-                          nameofproduct: "Organic Banana",
-                          perpiece: "7pcs, Priceg",
-                          price: "\$4.99",
-                        ),
-                        custom_card(
-                          imagePath: 'assets/images/apple.png',
-                          nameofproduct: "Red Apple",
-                          perpiece: "1kg, Priceg",
-                          price: '\$4.99',
-                        ),
-                        custom_card(
-                          imagePath: 'assets/images/BellPepper.png',
-                          nameofproduct: "Bell Pepper Red",
-                          perpiece: "1kg, Price",
-                          price: "\$4.99",
-                        ),
-                        // Add more CustomCard widgets as needed
-                      ],
+                      children: cardData.map((data) {
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const ProductDetail(
+                                          imagePath:
+                                              'assets/images/AppleBig.png',
+                                          productName: "Natural Red Apple",
+                                          pricePerKg: "1kg, Price",
+                                          Price: '\$4.99',
+                                          imageBgPath:
+                                              'assets/images/AppleBig.png',
+                                          productinfo:
+                                              'Apples are nutritious. Apples may be good for weight loss. Apples may be good for your heart. As part of a healthful and varied diet.',
+                                          nutirients: '''Calories: 104.
+Carbs: 28 g.
+Fiber: 5 g.
+Vitamin C: 10% of the Daily Value (DV)
+Copper: 6% of the DV.
+Potassium: 5% of the DV.
+Vitamin K: 4% of the DV.''',
+                                          feautureupdate:
+                                              " This feature will be updated soon with list tile view",
+                                        )));
+                            // Handle onTap event
+                          },
+                          child: custom_card(
+                            imagePath: data['imagePath']!,
+                            nameofproduct: data['nameofproduct']!,
+                            perpiece: data['perpiece']!,
+                            price: data['price']!,
+                          ),
+                        );
+                      }).toList(),
                     ),
                   ),
                 ),
-                const SizedBox(
-                    height:
-                        10), // Add some space between the cards and the best selling section
+                const SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Row(
@@ -165,8 +196,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                       ),
-                      const SizedBox(
-                          width: 10), // Add some space between the text widgets
+                      const SizedBox(width: 10),
                       GestureDetector(
                         onTap: () {},
                         child: const Text(
@@ -182,33 +212,47 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        custom_card(
-                          imagePath: 'assets/images/Ginger.png',
-                          nameofproduct: "Ginger",
-                          perpiece: "250g, Priceg",
-                          price: "\$4.99",
-                        ),
-                        custom_card(
-                          imagePath: 'assets/images/Chicken.png',
-                          nameofproduct: "Chicken",
-                          perpiece: "1kg, Priceg",
-                          price: '\$4.99',
-                        ),
-                        custom_card(
-                          imagePath: 'assets/images/BellPepper.png',
-                          nameofproduct: "Bell Pepper Red",
-                          perpiece: "1kg, Price",
-                          price: "\$4.99",
-                        ),
-                        // Add more CustomCard widgets as needed
-                      ],
+                      children: cardData.map((data) {
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const ProductDetail(
+                                          imagePath:
+                                              'assets/images/AppleBig.png',
+                                          productName: "Natural Red Apple",
+                                          pricePerKg: "1kg, Price",
+                                          Price: '\$4.99',
+                                          imageBgPath:
+                                              'assets/images/AppleBig.png',
+                                          productinfo:
+                                              'Apples are nutritious. Apples may be good for weight loss. Apples may be good for your heart. As part of a healthful and varied diet.',
+                                          nutirients: '''Calories: 104.
+Carbs: 28 g.
+Fiber: 5 g.
+Vitamin C: 10% of the Daily Value (DV)
+Copper: 6% of the DV.
+Potassium: 5% of the DV.
+Vitamin K: 4% of the DV.''',
+                                          feautureupdate:
+                                              " This feature will be updated soon with list tile view",
+                                        )));
+                            // Handle onTap event
+                          },
+                          child: custom_card(
+                            imagePath: data['imagePath']!,
+                            nameofproduct: data['nameofproduct']!,
+                            perpiece: data['perpiece']!,
+                            price: data['price']!,
+                          ),
+                        );
+                      }).toList(),
                     ),
                   ),
                 ),
@@ -228,8 +272,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                       ),
-                      const SizedBox(
-                          width: 10), // Add some space between the text widgets
+                      const SizedBox(width: 10),
                       GestureDetector(
                         onTap: () {},
                         child: const Text(
@@ -244,7 +287,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
-                ), // Add
+                ),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Padding(
@@ -252,53 +295,123 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        GroceriesRowWidget(
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const ProductDetail(
+                                          imagePath:
+                                              'assets/images/AppleBig.png',
+                                          productName: "Natural Red Apple",
+                                          pricePerKg: "1kg, Price",
+                                          Price: '\$4.99',
+                                          imageBgPath:
+                                              'assets/images/AppleBig.png',
+                                          productinfo:
+                                              'Apples are nutritious. Apples may be good for weight loss. Apples may be good for your heart. As part of a healthful and varied diet.',
+                                          nutirients: '''Calories: 104.
+Carbs: 28 g.
+Fiber: 5 g.
+Vitamin C: 10% of the Daily Value (DV)
+Copper: 6% of the DV.
+Potassium: 5% of the DV.
+Vitamin K: 4% of the DV.''',
+                                          feautureupdate:
+                                              " This feature will be updated soon with list tile view",
+                                        )));
+                            // Handle onTap event
+                          },
+                          child: GroceriesRowWidget(
                             colorinput:
                                 const Color(orangeColor).withOpacity(0.15),
                             imagePath: 'assets/images/Pulses.png',
-                            productname: 'Pulses'),
-                        GroceriesRowWidget(
+                            productname: 'Pulses',
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const ProductDetail(
+                                          imagePath:
+                                              'assets/images/AppleBig.png',
+                                          productName: "Natural Red Apple",
+                                          pricePerKg: "1kg, Price",
+                                          Price: '\$4.99',
+                                          imageBgPath:
+                                              'assets/images/AppleBig.png',
+                                          productinfo:
+                                              'Apples are nutritious. Apples may be good for weight loss. Apples may be good for your heart. As part of a healthful and varied diet.',
+                                          nutirients: '''Calories: 104.
+Carbs: 28 g.
+Fiber: 5 g.
+Vitamin C: 10% of the Daily Value (DV)
+Copper: 6% of the DV.
+Potassium: 5% of the DV.
+Vitamin K: 4% of the DV.''',
+                                          feautureupdate:
+                                              " This feature will be updated soon with list tile view",
+                                        )));
+                            // Handle onTap event
+                          },
+                          child: GroceriesRowWidget(
                             colorinput:
                                 const Color(greenColor).withOpacity(0.15),
                             imagePath: 'assets/images/Ricebag.png',
-                            productname: 'Rice')
+                            productname: 'Rice',
+                          ),
+                        ),
                       ],
                     ),
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        custom_card(
-                          imagePath: 'assets/images/steak.png',
-                          nameofproduct: "Beef Bone",
-                          perpiece: "1kg, Price",
-                          price: "\$4.99",
-                        ),
-                        custom_card(
-                          imagePath: 'assets/images/Chicken.png',
-                          nameofproduct: "Broiler Chicken",
-                          perpiece: "1kg, Priceg",
-                          price: '\$4.99',
-                        ),
-                        custom_card(
-                          imagePath: 'assets/images/BellPepper.png',
-                          nameofproduct: "Bell Pepper Red",
-                          perpiece: "1kg, Price",
-                          price: "\$4.99",
-                        ),
-                        // Add more CustomCard widgets as needed
-                      ],
+                      children: cardData.map((data) {
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const ProductDetail(
+                                          imagePath:
+                                              'assets/images/AppleBig.png',
+                                          productName: "Natural Red Apple",
+                                          pricePerKg: "1kg, Price",
+                                          Price: '\$4.99',
+                                          imageBgPath:
+                                              'assets/images/AppleBig.png',
+                                          productinfo:
+                                              'Apples are nutritious. Apples may be good for weight loss. Apples may be good for your heart. As part of a healthful and varied diet.',
+                                          nutirients: '''Calories: 104.
+Carbs: 28 g.
+Fiber: 5 g.
+Vitamin C: 10% of the Daily Value (DV)
+Copper: 6% of the DV.
+Potassium: 5% of the DV.
+Vitamin K: 4% of the DV.''',
+                                          feautureupdate:
+                                              " This feature will be updated soon with list tile view",
+                                        )));
+                            // Handle onTap event
+                          },
+                          child: custom_card(
+                            imagePath: data['imagePath']!,
+                            nameofproduct: data['nameofproduct']!,
+                            perpiece: data['perpiece']!,
+                            price: data['price']!,
+                          ),
+                        );
+                      }).toList(),
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
-                )
+                const SizedBox(height: 10),
               ],
             ),
           ),
@@ -309,7 +422,7 @@ class _HomeScreenState extends State<HomeScreen> {
         selectedItemColor: const Color(0xFF53B175),
         unselectedItemColor: const Color(0xff181725),
         backgroundColor: Colors.white,
-        currentIndex: currentindex,
+        currentIndex: currentIndex,
         selectedFontSize: 12,
         unselectedFontSize: 12,
         unselectedLabelStyle: const TextStyle(
@@ -322,7 +435,7 @@ class _HomeScreenState extends State<HomeScreen> {
           fontWeight: FontWeight.w600,
           fontFamily: 'Gilroy',
         ),
-        onTap: (index) => setState(() => currentindex = index),
+        onTap: (index) => setState(() => currentIndex = index),
         items: const [
           BottomNavigationBarItem(
             icon: Icon(
