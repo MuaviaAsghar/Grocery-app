@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+
 
 // ignore: camel_case_types
 class custom_card extends StatelessWidget {
@@ -8,7 +10,7 @@ class custom_card extends StatelessWidget {
   final String perpiece;
   final String price;
 
-  const custom_card({
+   const custom_card({
     super.key, // Corrected key parameter
     required this.imagePath,
     required this.nameofproduct,
@@ -97,10 +99,7 @@ class custom_card extends StatelessWidget {
                       letterSpacing: 0.1,
                     ),
                   ),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Image.asset('assets/images/addButton.png'),
-                  ),
+                  Image.asset('assets/images/addButton.png'),
                 ],
               ),
             ),

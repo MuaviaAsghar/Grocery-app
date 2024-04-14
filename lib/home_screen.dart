@@ -41,7 +41,52 @@ class _HomeScreenState extends State<HomeScreen> {
     // A
     // Add more card data as needed
   ];
+final List<Map<String, String>> cardData2 = [
+    {
+      'imagePath': 'assets/images/Ginger.png',
+      'nameofproduct': 'Ginger ',
+      'perpiece': '7pcs, Priceg',
+      'price': '\$4.99',
+    },
+    {
+      'imagePath': 'assets/images/apple.png',
+      'nameofproduct': 'Red Apple',
+      'perpiece': '1kg, Priceg',
+      'price': '\$4.99',
+    },
+    {
+      'imagePath': 'assets/images/steak.png',
+      'nameofproduct': 'Beef Bone',
+      'perpiece': '1kg, Price',
+      'price': '\$4.99',
+    },
 
+    // A
+    // Add more card data as needed
+  ];
+  final List<Map<String, String>> cardData3 = [
+    {
+      'imagePath': 'assets/images/steak.png',
+      'nameofproduct': 'Beef Bone',
+      'perpiece': '7pcs, Priceg',
+      'price': '\$4.99',
+    },
+    {
+      'imagePath': 'assets/images/Chicken.png',
+      'nameofproduct': 'Broiler Chicken ',
+      'perpiece': '1kg, Priceg',
+      'price': '\$4.99',
+    },
+    {
+      'imagePath': 'assets/images/BellPepper.png',
+      'nameofproduct': 'Bell Pepper Red',
+      'perpiece': '1kg, Price',
+      'price': '\$4.99',
+    },
+
+    // A
+    // Add more card data as needed
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -217,7 +262,7 @@ Vitamin K: 4% of the DV.''',
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
-                      children: cardData.map((data) {
+                      children: cardData2.map((data) {
                         return GestureDetector(
                           onTap: () {
                             Navigator.push(
@@ -372,7 +417,7 @@ Vitamin K: 4% of the DV.''',
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
-                      children: cardData.map((data) {
+                      children: cardData3.map((data) {
                         return GestureDetector(
                           onTap: () {
                             Navigator.push(

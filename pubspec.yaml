@@ -67,8 +67,13 @@ flutter:
     - assets/images/CarrotLogo.png
     - assets/images/whitebg.png
     - assets/images/AppleBig.png
-
+    - assets/images/VegCardExplore.png
+    - assets/images/CookingoilandGheeExplore.png
+    - assets/images/dairyandeggs.png
+    - assets/images/meatandfish.png
     - assets/images/apple.png
+    - assets/images/bakeryandsnacks.png
+    - assets/images/beverages.png
     - assets/images/Pulses.png
     - assets/images/Ricebag.png
     - assets/images/steak.png

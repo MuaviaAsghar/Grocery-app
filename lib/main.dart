@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:groceryapp/explorePage.dart';
 
 import 'package:groceryapp/onboarding.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       home: Scaffold(
-        body: Onboard()
+        body: ExplorePage()
         
       ),
     );
