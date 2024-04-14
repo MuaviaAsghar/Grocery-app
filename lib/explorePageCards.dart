@@ -49,14 +49,20 @@ class ExplorePageCard extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Card(
-                  child: Image.asset(
-                    imagePathCard,
-                    width: 101.265,
-                    height: 75.933,
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 20,bottom: 10,left: 20,right: 20),
+                    child: Card(
+                      child: Image.asset(
+                        imagePathCard,
+                        width: 101.265,
+                        
+                        height: 75.933,
+                      ),
+                    ),
                   ),
                 ),
-                Text(productType,style:const TextStyle(fontSize: 16,height: 2.2,color: Color(0xff181725),letterSpacing: 0.1),textAlign: TextAlign.center,),
+                Text(productType,style:const TextStyle(fontSize: 16,fontFamily: 'Gilroy-Bold',fontWeight: FontWeight.bold,height: 2.2,color: Color(0xff181725),letterSpacing: 0.1),textAlign: TextAlign.center,),
               ],
             ),
           ),

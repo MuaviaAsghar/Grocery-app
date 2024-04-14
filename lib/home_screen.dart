@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:groceryapp/FavouritePage.dart';
+import 'package:groceryapp/accountpage.dart';
 
 import 'package:groceryapp/card.dart';
+import 'package:groceryapp/cartPage.dart';
+import 'package:groceryapp/explorePage.dart';
 import 'package:groceryapp/groceries_scroll.dart';
 import 'package:groceryapp/nav_bar_icons.dart';
 import 'package:groceryapp/const_color.dart';
@@ -15,7 +19,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final screens = [];
+  final screens = [HomeScreen(),ExplorePage(),CartPage(),FavouritePage(),AccountPage()];
   int currentIndex = 0;
 
   final List<Map<String, String>> cardData = [

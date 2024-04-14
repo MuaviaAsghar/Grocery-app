@@ -33,7 +33,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   flutter:
     sdk: flutter
-  readmore: ^2.0.0
+  readmore: ^3.0.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -112,7 +112,7 @@ fonts:
       - asset: assets/fonts/Gilroy-ExtraBold.ttf
 
 
-  - family:  NavBar
+  - family: NavBar
     fonts:
       - asset: assets/fonts/NavBar.ttf
 

@@ -20,97 +20,123 @@ class ExplorePage extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
-            child: TextField(
-              obscureText: false,
-              decoration: InputDecoration(
-                hintText: 'Search Store',
-                hintStyle: const TextStyle(
-                  fontFamily: 'Gilroy-Regular',
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-                filled: true,
-                fillColor: const Color(0xFFF2F3F2),
-                prefixIcon: const Icon(
-                  Icons.search,
-                  size: 35,
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(
-                    width: 3,
-                    color: Colors.transparent,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: TextField(
+                obscureText: false,
+                decoration: InputDecoration(
+                  hintText: 'Search Store',
+                  hintStyle: const TextStyle(
+                    fontFamily: 'Gilroy-Regular',
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
                   ),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(
-                    width: 3,
-                    color: Colors.transparent,
+                  filled: true,
+                  fillColor: const Color(0xFFF2F3F2),
+                  prefixIcon: const Icon(
+                    Icons.search,
+                    size: 35,
                   ),
-                  borderRadius: BorderRadius.circular(15),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(
+                      width: 3,
+                      color: Colors.transparent,
+                    ),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(
+                      width: 3,
+                      color: Colors.transparent,
+                    ),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
                 ),
               ),
             ),
-          ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 25, vertical: 20),
-            child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(bottom: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ExplorePageCard(productType: 'Frash Fruits \n& Vegetable',
-                        imagePathCard: 'assets/images/VegCardExplore.png',
-                        colorInputUser: fruitandvegColor,
-                      ),
-                      ExplorePageCard(productType: 'Cooking Oil \n& Ghee',
-                        imagePathCard:
-                            'assets/images/CookingoilandGheeExplore.png',
-                        colorInputUser: cookingoilColor,
-                      ),
-                    ],
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ExplorePageCard(productType: 'Frash Fruits \n& Vegetable',
+                          imagePathCard: 'assets/images/VegCardExplore.png',
+                          colorInputUser: fruitandvegColor,
+                        ),
+                        ExplorePageCard(productType: 'Cooking Oil \n& Ghee',
+                          imagePathCard:
+                              'assets/images/CookingoilandGheeExplore.png',
+                          colorInputUser: cookingoilColor,
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ExplorePageCard(productType: 'Meat & Fish',
-                      imagePathCard: 'assets/images/meatandfish.png',
-                      colorInputUser: fruitandvegColor,
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ExplorePageCard(productType: 'Meat & Fish',
+                          imagePathCard: 'assets/images/meatandfish.png',
+                          colorInputUser: fruitandvegColor,
+                        ),
+                        ExplorePageCard(productType: 'Bakery & Snacks',
+                          imagePathCard:
+                              'assets/images/bakeryandsnacks.png',
+                          colorInputUser: cookingoilColor,
+                        ),
+                      ],
                     ),
-                    ExplorePageCard(productType: 'Bakery & Snacks',
-                      imagePathCard:
-                          'assets/images/bakeryandsnacks.png',
-                      colorInputUser: cookingoilColor,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ExplorePageCard(
+                          productType: 'Dairy & Eggs',
+                          imagePathCard: 'assets/images/dairyandeggs.png',
+                          colorInputUser: fruitandvegColor,
+                        ),
+                        ExplorePageCard(
+                          productType: 'Beverages',
+                          imagePathCard:
+                              'assets/images/beverages.png',
+                          colorInputUser: cookingoilColor,
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ExplorePageCard(
-                      productType: 'Dairy & Eggs',
-                      imagePathCard: 'assets/images/dairyandeggs.png',
-                      colorInputUser: fruitandvegColor,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ExplorePageCard(
+                          productType: 'Dairy & Eggs',
+                          imagePathCard: 'assets/images/dairyandeggs.png',
+                          colorInputUser: fruitandvegColor,
+                        ),
+                        ExplorePageCard(
+                          productType: 'Beverages',
+                          imagePathCard: 'assets/images/beverages.png',
+                          colorInputUser: cookingoilColor,
+                        ),
+                      ],
                     ),
-                    ExplorePageCard(
-                      productType: 'Beverages',
-                      imagePathCard:
-                          'assets/images/beverages.png',
-                      colorInputUser: cookingoilColor,
-                    ),
-                  ],
-                ),
-              ],
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
