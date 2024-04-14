@@ -5,6 +5,11 @@ class FavouritePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text(" Favourite Page");
+    return const Center(
+      child: Text(
+        "Cart Page",
+        style: TextStyle(fontSize: 40),
+      ),
+    );
   }
 }

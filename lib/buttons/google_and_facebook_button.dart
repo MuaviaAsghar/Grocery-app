@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:groceryapp/HomeScreenWithNavigation.dart';
 import 'package:groceryapp/home_screen.dart';
 
 class GoogleLogin extends StatelessWidget {
@@ -13,7 +14,7 @@ class GoogleLogin extends StatelessWidget {
       child: GestureDetector(
         onTap: () {Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const HomeScreen()),
+                MaterialPageRoute(builder: (context) => const HomeScreenNavigation()),
               );
         
           
@@ -47,7 +48,7 @@ class FacebookLoginButton extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const HomeScreen()),
+          MaterialPageRoute(builder: (context) => const HomeScreenNavigation()),
         );
       },
       child: Container(

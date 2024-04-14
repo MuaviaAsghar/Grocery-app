@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class ExplorePageCard extends StatelessWidget {
+class explore_page_card extends StatelessWidget {
   final String imagePathCard;
   final String productType;
   final int colorInputUser;
 
-  const ExplorePageCard({
+  const explore_page_card({
     Key? key,
     required this.productType,
     required this.imagePathCard,

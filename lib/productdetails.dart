@@ -8,18 +8,17 @@ class ProductDetail extends StatefulWidget {
   final String imagePath;
   final String productName;
   final String pricePerKg;
-  final String Price;
+  final String price;
   final String productinfo;
   final String nutirients;
   final String feautureupdate;
-  const ProductDetail({
-    Key? key, // Added Key? type
+  const ProductDetail({super.key,  
     required this.imageBgPath,
     required this.imagePath,
     required this.productName,
     required this.pricePerKg,
     required this.nutirients,
-    required this.Price,
+    required this.price,
     required this.productinfo,
     required this.feautureupdate, // Corrected variable name
   });
@@ -136,7 +135,7 @@ class _ProductDetailState extends State<ProductDetail> {
                 children: [
                   const CounterPlusMinus(),
                   Text(
-                    widget.Price,
+                    widget.price,
                     style: const TextStyle(
                       color: Color(0xff181725),
                       fontSize: 24,

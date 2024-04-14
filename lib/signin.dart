@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:groceryapp/buttons/google_and_facebook_button.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
-class SignIn extends StatelessWidget {
-  const SignIn({super.key});
+class Signin extends StatelessWidget {
+  const Signin({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

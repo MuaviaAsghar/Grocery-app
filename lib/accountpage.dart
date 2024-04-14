@@ -5,6 +5,11 @@ class AccountPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text("Account Page");
+    return const Center(
+      child: Text(
+        "Cart Page",
+        style: TextStyle(fontSize: 40),
+      ),
+    );
   }
 }

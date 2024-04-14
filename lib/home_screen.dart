@@ -19,8 +19,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final screens = [HomeScreen(),ExplorePage(),CartPage(),FavouritePage(),AccountPage()];
-  int currentIndex = 0;
 
   final List<Map<String, String>> cardData = [
     {
@@ -201,7 +199,7 @@ final List<Map<String, String>> cardData2 = [
                                               'assets/images/AppleBig.png',
                                           productName: "Natural Red Apple",
                                           pricePerKg: "1kg, Price",
-                                          Price: '\$4.99',
+                                          price: '\$4.99',
                                           imageBgPath:
                                               'assets/images/AppleBig.png',
                                           productinfo:
@@ -277,7 +275,7 @@ Vitamin K: 4% of the DV.''',
                                               'assets/images/AppleBig.png',
                                           productName: "Natural Red Apple",
                                           pricePerKg: "1kg, Price",
-                                          Price: '\$4.99',
+                                          price: '\$4.99',
                                           imageBgPath:
                                               'assets/images/AppleBig.png',
                                           productinfo:
@@ -354,7 +352,7 @@ Vitamin K: 4% of the DV.''',
                                               'assets/images/AppleBig.png',
                                           productName: "Natural Red Apple",
                                           pricePerKg: "1kg, Price",
-                                          Price: '\$4.99',
+                                          price: '\$4.99',
                                           imageBgPath:
                                               'assets/images/AppleBig.png',
                                           productinfo:
@@ -388,7 +386,7 @@ Vitamin K: 4% of the DV.''',
                                               'assets/images/AppleBig.png',
                                           productName: "Natural Red Apple",
                                           pricePerKg: "1kg, Price",
-                                          Price: '\$4.99',
+                                          price: '\$4.99',
                                           imageBgPath:
                                               'assets/images/AppleBig.png',
                                           productinfo:
@@ -432,7 +430,7 @@ Vitamin K: 4% of the DV.''',
                                               'assets/images/AppleBig.png',
                                           productName: "Natural Red Apple",
                                           pricePerKg: "1kg, Price",
-                                          Price: '\$4.99',
+                                          price: '\$4.99',
                                           imageBgPath:
                                               'assets/images/AppleBig.png',
                                           productinfo:
@@ -466,59 +464,7 @@ Vitamin K: 4% of the DV.''',
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: const Color(0xFF53B175),
-        unselectedItemColor: const Color(0xff181725),
-        backgroundColor: Colors.white,
-        currentIndex: currentIndex,
-        selectedFontSize: 12,
-        unselectedFontSize: 12,
-        unselectedLabelStyle: const TextStyle(
-          fontSize: 12,
-          fontWeight: FontWeight.w600,
-          fontFamily: 'Gilroy',
-        ),
-        selectedLabelStyle: const TextStyle(
-          fontSize: 12,
-          fontWeight: FontWeight.w600,
-          fontFamily: 'Gilroy',
-        ),
-        onTap: (index) => setState(() => currentIndex = index),
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(
-              NavBar.store,
-            ),
-            label: 'Shop',
-            backgroundColor: Color.fromARGB(255, 0, 0, 0),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              NavBar.explore,
-            ),
-            label: 'Explore',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              NavBar.cart,
-            ),
-            label: 'Cart',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              NavBar.favourite,
-            ),
-            label: 'Favourite',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              NavBar.account,
-            ),
-            label: 'Account',
-          ),
-        ],
-      ),
+
     );
   }
 }

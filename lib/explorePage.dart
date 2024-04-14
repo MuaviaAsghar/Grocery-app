@@ -66,11 +66,11 @@ class ExplorePage extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        ExplorePageCard(productType: 'Frash Fruits \n& Vegetable',
+                        explore_page_card(productType: 'Frash Fruits \n& Vegetable',
                           imagePathCard: 'assets/images/VegCardExplore.png',
                           colorInputUser: fruitandvegColor,
                         ),
-                        ExplorePageCard(productType: 'Cooking Oil \n& Ghee',
+                        explore_page_card(productType: 'Cooking Oil \n& Ghee',
                           imagePathCard:
                               'assets/images/CookingoilandGheeExplore.png',
                           colorInputUser: cookingoilColor,
@@ -83,11 +83,11 @@ class ExplorePage extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        ExplorePageCard(productType: 'Meat & Fish',
+                        explore_page_card(productType: 'Meat & Fish',
                           imagePathCard: 'assets/images/meatandfish.png',
                           colorInputUser: fruitandvegColor,
                         ),
-                        ExplorePageCard(productType: 'Bakery & Snacks',
+                        explore_page_card(productType: 'Bakery & Snacks',
                           imagePathCard:
                               'assets/images/bakeryandsnacks.png',
                           colorInputUser: cookingoilColor,
@@ -100,12 +100,12 @@ class ExplorePage extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        ExplorePageCard(
+                        explore_page_card(
                           productType: 'Dairy & Eggs',
                           imagePathCard: 'assets/images/dairyandeggs.png',
                           colorInputUser: fruitandvegColor,
                         ),
-                        ExplorePageCard(
+                        explore_page_card(
                           productType: 'Beverages',
                           imagePathCard:
                               'assets/images/beverages.png',
@@ -119,12 +119,12 @@ class ExplorePage extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        ExplorePageCard(
+                        explore_page_card(
                           productType: 'Dairy & Eggs',
                           imagePathCard: 'assets/images/dairyandeggs.png',
                           colorInputUser: fruitandvegColor,
                         ),
-                        ExplorePageCard(
+                        explore_page_card(
                           productType: 'Beverages',
                           imagePathCard: 'assets/images/beverages.png',
                           colorInputUser: cookingoilColor,

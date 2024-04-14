@@ -13,7 +13,7 @@ class GetStartedButton extends StatelessWidget {
       // Adjust the margin as needed
       child: ElevatedButton(
         onPressed: () => Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => const SignIn())),
+            .push(MaterialPageRoute(builder: (context) => const Signin())),
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color(0xFF53B175),
           minimumSize: const Size(353, 67),
