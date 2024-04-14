@@ -1,25 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:groceryapp/FavouritePage.dart';
-import 'package:groceryapp/accountpage.dart';
-
 import 'package:groceryapp/card.dart';
-import 'package:groceryapp/cartPage.dart';
-import 'package:groceryapp/explorePage.dart';
 import 'package:groceryapp/groceries_scroll.dart';
-import 'package:groceryapp/nav_bar_icons.dart';
 import 'package:groceryapp/const_color.dart';
 import 'package:groceryapp/productdetails.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   final List<Map<String, String>> cardData = [
     {
       'imagePath': 'assets/images/Banana.png',
@@ -43,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
     // A
     // Add more card data as needed
   ];
-final List<Map<String, String>> cardData2 = [
+  final List<Map<String, String>> cardData2 = [
     {
       'imagePath': 'assets/images/Ginger.png',
       'nameofproduct': 'Ginger ',
@@ -289,7 +282,9 @@ Potassium: 5% of the DV.
 Vitamin K: 4% of the DV.''',
                                           feautureupdate:
                                               " This feature will be updated soon with list tile view",
-                                        )));
+                                        )
+                                        )
+                                        );
                             // Handle onTap event
                           },
                           child: custom_card(
@@ -464,7 +459,6 @@ Vitamin K: 4% of the DV.''',
           ),
         ],
       ),
-
     );
   }
 }

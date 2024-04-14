@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:groceryapp/HomeScreenWithNavigation.dart';
-import 'package:groceryapp/home_screen.dart';
 
 class GoogleLogin extends StatelessWidget {
   const GoogleLogin({
@@ -12,12 +11,12 @@ class GoogleLogin extends StatelessWidget {
     return Material(
       type: MaterialType.transparency,
       child: GestureDetector(
-        onTap: () {Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const HomeScreenNavigation()),
-              );
-        
-          
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => const HomeScreenNavigation()),
+          );
         },
         child: Container(
           width: 400, // Adjust the width according to your design

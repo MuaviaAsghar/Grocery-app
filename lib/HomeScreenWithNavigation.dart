@@ -17,7 +17,7 @@ class HomeScreenNavigation extends StatefulWidget {
 class _HomeScreenNavigationState extends State<HomeScreenNavigation> {
    final screens = [
     const HomeScreen(),
-    const ExplorePage(),
+    ExplorePage(),
     const CartPage(),
     const FavouritePage(),
     const AccountPage()

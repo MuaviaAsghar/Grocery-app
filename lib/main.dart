@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:groceryapp/explorePage.dart';
-
 import 'package:groceryapp/onboarding.dart';
 
 

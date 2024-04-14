@@ -12,7 +12,8 @@ class ProductDetail extends StatefulWidget {
   final String productinfo;
   final String nutirients;
   final String feautureupdate;
-  const ProductDetail({super.key,  
+  const ProductDetail({
+    super.key,
     required this.imageBgPath,
     required this.imagePath,
     required this.productName,
@@ -35,6 +36,10 @@ class _ProductDetailState extends State<ProductDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        title: Image.asset('assets/images/whitebg.png', fit: BoxFit.fill),
+      ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
@@ -339,8 +344,8 @@ class _ProductDetailState extends State<ProductDetail> {
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
               child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,children: [AddToBasketButton()]
-                  ),
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [AddToBasketButton()]),
             )
           ],
         ),

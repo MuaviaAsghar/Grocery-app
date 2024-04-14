@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+
+import 'package:groceryapp/beveragespage.dart';
 import 'package:groceryapp/explorePageCards.dart';
 
 class ExplorePage extends StatelessWidget {
-  const ExplorePage({Key? key});
+
+
+
+  ExplorePage({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +34,7 @@ class ExplorePage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: TextField(
+             
                 obscureText: false,
                 decoration: InputDecoration(
                   hintText: 'Search Store',
@@ -57,20 +66,32 @@ class ExplorePage extends StatelessWidget {
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+            
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
               child: Column(
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(bottom: 20),
+                    padding: const EdgeInsets.only(bottom: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        explore_page_card(productType: 'Frash Fruits \n& Vegetable',
-                          imagePathCard: 'assets/images/VegCardExplore.png',
-                          colorInputUser: fruitandvegColor,
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const BeveragesPage()),
+                            );
+                          },
+                          child: const explore_page_card(
+                            productType: 'Frash Fruits \n& Vegetable',
+                            imagePathCard: 'assets/images/VegCardExplore.png',
+                            colorInputUser: fruitandvegColor,
+                          ),
                         ),
-                        explore_page_card(productType: 'Cooking Oil \n& Ghee',
+                        const explore_page_card(
+                          productType: 'Cooking Oil \n& Ghee',
                           imagePathCard:
                               'assets/images/CookingoilandGheeExplore.png',
                           colorInputUser: cookingoilColor,
@@ -78,24 +99,25 @@ class ExplorePage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(bottom: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        explore_page_card(productType: 'Meat & Fish',
+                        explore_page_card(
+                          productType: 'Meat & Fish',
                           imagePathCard: 'assets/images/meatandfish.png',
                           colorInputUser: fruitandvegColor,
                         ),
-                        explore_page_card(productType: 'Bakery & Snacks',
-                          imagePathCard:
-                              'assets/images/bakeryandsnacks.png',
+                        explore_page_card(
+                          productType: 'Bakery & Snacks',
+                          imagePathCard: 'assets/images/bakeryandsnacks.png',
                           colorInputUser: cookingoilColor,
                         ),
                       ],
                     ),
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(bottom: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -107,14 +129,13 @@ class ExplorePage extends StatelessWidget {
                         ),
                         explore_page_card(
                           productType: 'Beverages',
-                          imagePathCard:
-                              'assets/images/beverages.png',
+                          imagePathCard: 'assets/images/beverages.png',
                           colorInputUser: cookingoilColor,
                         ),
                       ],
                     ),
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(bottom: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
